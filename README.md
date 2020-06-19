@@ -1,3 +1,3 @@
-# jupyterStack
+# jupyter-stack
 
-jupyterStack is a community maintained Jupyter Docker Stack image
+jupyter-stack is a community maintained Jupyter Docker Stack image
