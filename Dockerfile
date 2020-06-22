@@ -89,14 +89,12 @@ RUN apt-get update && \
     octave-missing-functions \
     octave-nan \
     octave-nurbs \
-    octave-odepkg \
     octave-signal \
     octave-splines \
     octave-statistics \
     octave-strings \
     octave-struct \
     octave-symbolic \
-    python-sympy \
     gnuplot \
     ghostscript \
     && \
