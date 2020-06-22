@@ -78,7 +78,7 @@ RUN julia -e 'import Pkg; Pkg.update()' && \
 
 USER root
 
-RUN RUN apt-get update && \
+RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
     octave \
     octave-symoblic \
