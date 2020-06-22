@@ -81,8 +81,21 @@ USER root
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
     octave \
-    octave-symoblic \
+    octave-data-smoothing \
+    octave-database \
+    octave-image \
+    octave-io \
     octave-miscellaneous \
+    octave-missing-functions \
+    octave-nan \
+    octave-nurbs \
+    octave-odepkg \
+    octave-signal \
+    octave-splines \
+    octave-statistics \
+    octave-strings \
+    octave-struct \
+    octave-symbolic \
     python-sympy \
     gnuplot \
     ghostscript \
