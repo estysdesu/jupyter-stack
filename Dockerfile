@@ -6,7 +6,6 @@ LABEL Maintainer="Tyler Estes <estysdesu@gmail.com>"
 ARG NB_USER="estysdesu"
 ARG NB_UID="5000"
 ARG NB_GID="5000"
-ARG conda_env=python38
 ARG py_ver=3.8
 
 ENV NB_USER=$NB_USER \
@@ -25,29 +24,21 @@ CMD ["start-notebook.sh", "--LabApp.token=''"]
 ##### ##### ##### ##### ##### ##### ##### #####
 ##### CONDA ENV                           #####
 ##### ##### ##### ##### ##### ##### ##### #####
-RUN conda create -q -y -p $CONDA_DIR/envs/$conda_env -c conda-forge python=$py_ver \
-    ipython \
-    ipykernel \
-    && \
-    conda clean --all -f -y
+# https://stackoverflow.com/a/28460907
+USER root
 
-RUN $CONDA_DIR/envs/${conda_env}/bin/python -m ipykernel install \
-    --prefix="${CONDA_DIR}" \
-    --name="${conda_env}" \
-    --display-name='Python 3.8' && \
+USER $NB_USER
+
+RUN conda update conda -y -q && \
+    conda install python=$py_ver -y -q && \ # override pinned python version
+    conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
-
-# RUN $CONDA_DIR/envs/${conda_env}/bin/pip install
-
-ENV PATH=$CONDA_DIR/envs/${conda_env}/bin:$PATH
-ENV CONDA_DEFAULT_ENV=${conda_env}
-
+    
 ##### ##### ##### ##### ##### ##### ##### #####
 ##### JULIA KERNEL                        #####
 ##### ##### ##### ##### ##### ##### ##### #####
 # https://github.com/jupyter/docker-stacks/blob/master/datascience-notebook/Dockerfile
-
 USER root
 
 ENV JULIA_PKGDIR=/opt/julia
@@ -77,7 +68,6 @@ RUN julia -e 'import Pkg; Pkg.update()' && \
 ##### OCTAVE KERNEL                       #####
 ##### ##### ##### ##### ##### ##### ##### #####
 # https://github.com/rubenv/jupyter-octave/blob/master/Dockerfile
-
 USER root
 
 RUN apt-get update && \
