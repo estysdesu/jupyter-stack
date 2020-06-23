@@ -29,7 +29,6 @@ USER root
 
 USER $NB_USER
 
-# override pinned python version
 RUN conda update conda -y -q && \
     conda install python=$py_ver -y -q && \
     conda clean --all -f -y && \
