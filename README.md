@@ -5,4 +5,4 @@ jupyter-stack is a my personal maintained Jupyter Docker Stack image for use on 
 
 ## TODO
 - [ ] Update testing suite ([docs](https://docs.pytest.org/en/5.4.3/getting-started.html))
-- [ ] Reduce image size by building from Alpine ([base Dockerfile](https://github.com/jupyter/docker-stacks/blob/master/base-notebook/Dockerfile), [apk pkgs](https://pkgs.alpinelinux.org/packages?name=python*&branch=v3.12))
+- [ ] Reduce image size (currently > 1.5 GB) by building from Alpine ([base Dockerfile](https://github.com/jupyter/docker-stacks/blob/master/base-notebook/Dockerfile), [apk pkgs](https://pkgs.alpinelinux.org/packages?name=python*&branch=v3.12))
