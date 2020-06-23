@@ -32,7 +32,7 @@ RUN conda create -q -y -p $CONDA_DIR/envs/$conda_env -c conda-forge python=$py_v
     conda clean --all -f -y
 
 RUN $CONDA_DIR/envs/${conda_env}/bin/python -m ipykernel install \
-    --prefix="${CONDA_DIR}"
+    --prefix="${CONDA_DIR}" \
     --name="${conda_env}" \
     --display-name='Python 3.8' && \
     fix-permissions $CONDA_DIR && \
