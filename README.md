@@ -1,5 +1,6 @@
 # jupyter-stack
 ![](https://github.com/estysdesu/jupyter-stack/workflows/CI/badge.svg)
+![](https://img.shields.io/docker/image-size/estysdesu/jupyter-stack/latest)
 
 jupyter-stack is a my personal maintained Jupyter Docker Stack image for use on my self-hosted server
 
