@@ -25,7 +25,7 @@ CMD ["start-notebook.sh", "--LabApp.token=''"]
 ##### ##### ##### ##### ##### ##### ##### #####
 ##### CONDA ENV                           #####
 ##### ##### ##### ##### ##### ##### ##### #####
-RUN conda create -qy -p $CONDA_DIR/envs/$conda_env -c conda-forge python=$py_ver \
+RUN conda create -q -y -p $CONDA_DIR/envs/$conda_env -c conda-forge python=$py_ver \
     ipython \
     ipykernel \
     && \
@@ -44,7 +44,6 @@ ENV CONDA_DEFAULT_ENV=${conda_env}
 ##### JULIA KERNEL                        #####
 ##### ##### ##### ##### ##### ##### ##### #####
 # https://github.com/jupyter/docker-stacks/blob/master/datascience-notebook/Dockerfile
-# switch to apt get?
 
 USER root
 
@@ -102,7 +101,7 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-RUN conda -yq install octave_kernel && \
+RUN conda install -y -q octave_kernel && \
     conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
