@@ -19,8 +19,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: estysdesu/jupyter-stack
+          cache_froms: jupyter/minimal-notebook:latest
           tag_with_sha: true
-          #build_args: # optional
+          tags: latest
 
   test:
     name: Build and test Docker image
