@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook
+FROM jupyter/minimal-notebook:latest
 
 LABEL Description="Jupyter w/ Python 3.8 and my own options and custom kernels"
 LABEL Maintainer="Tyler Estes <estysdesu@gmail.com>"
